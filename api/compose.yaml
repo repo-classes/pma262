@@ -1,0 +1,10 @@
+name: store
+
+services:
+  
+  account:
+    build:
+      context: ./account-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
