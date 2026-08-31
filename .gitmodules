@@ -4,3 +4,6 @@
 [submodule "api/account-service"]
 	path = api/account-service
 	url = git@github.com:hsandmann/pma262-account-service.git
+[submodule "api/gateway-service"]
+	path = api/gateway-service
+	url = git@github.com:repo-classes/pma262-gateway-service.git

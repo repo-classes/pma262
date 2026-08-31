@@ -19,5 +19,15 @@ services:
       DATABASE_DB: store
       DATABASE_USERNAME: store
       DATABASE_PASSWORD: store
+    # ports:
+    #   - "8080:8080"
+    deploy:
+      replicas: 2
+
+  gateway:
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
+
