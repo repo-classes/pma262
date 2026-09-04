@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="/store.js"></script>
+    </head>
+    <body>
+        Login |
+        <a href="/register.html">Register</a> |
+        <a href="/profile.html">Profile</a> |
+        <a href="/accounts.html">Accounts</a> |
+        <a href="/logout.html">Logout</a>
+        <hr>
+        <h1>Login</h1>
+        <form action="javascript:login(document.getElementById('email').value, document.getElementById('password').value)" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="1berto@insper.edu.br" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value="123321" required>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    </body>
+</html>

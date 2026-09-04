@@ -1,0 +1,10 @@
+name: store
+
+services:
+
+  web:
+    image: nginx:latest
+    volumes:
+      - ./app:/usr/share/nginx/html:ro
+    ports:
+      - "80:80"
