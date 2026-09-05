@@ -30,7 +30,7 @@ register = function(name, email, password) {
     
     console.log('Registering with name:', name, 'email:', email, 'and password:', password);
 
-    fetch('http://localhost:8080/accounts', {
+    fetch('http://localhost:8080/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

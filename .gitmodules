@@ -7,3 +7,9 @@
 [submodule "api/gateway-service"]
 	path = api/gateway-service
 	url = git@github.com:repo-classes/pma262-gateway-service.git
+[submodule "api/auth"]
+	path = api/auth
+	url = git@github.com:repo-classes/pma262-auth.git
+[submodule "api/auth-service"]
+	path = api/auth-service
+	url = git@github.com:repo-classes/pma262-auth-service.git
