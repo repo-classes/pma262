@@ -1,36 +1,10 @@
-login = function(email, password) {
-
-    console.log('Logging in with email:', email, 'and password:', password);
-    return ;
-
-    fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email, password: password })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Store the token in localStorage
-            localStorage.setItem('token', data.token);
-            alert('Login successful!');
-        } else {
-            alert('Login failed: ' + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-
-};
+const BASE_URL = 'http://localhost:8080';
 
 register = function(name, email, password) {
     
     console.log('Registering with name:', name, 'email:', email, 'and password:', password);
 
-    fetch('http://localhost:8080/auth/register', {
+    fetch(`${BASE_URL}/auth/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -54,8 +28,9 @@ loadAccounts = function() {
     // token = 'eyJ';
 
 
-    fetch('http://localhost:8080/accounts', {
+    fetch(`${BASE_URL}/accounts`, {
         method: 'GET',
+        credentials: 'include',
         // headers: {
         //     'Authorization': 'Bearer ' + token
         // }
@@ -74,6 +49,69 @@ loadAccounts = function() {
             });
         } else {
             alert('Failed to retrieve accounts: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+
+login = function(email, password) {
+
+    console.log('Logging in with email:', email, 'and password:', password);
+
+    fetch(`${BASE_URL}/auth/login`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, password: password })
+    })
+    .then(data => {
+        console.log('Data received:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+};
+
+getProfile = function() {
+    fetch(`${BASE_URL}/auth/me`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'id-account': 'to roubando o id-account do usuário logado',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Profile data received:', data);
+        if (data) {
+            var profileContainer = document.getElementById('profileContainer');
+            profileContainer.innerHTML = `Name: ${data.name}, Email: ${data.email}`;
+        } else {
+            alert('Failed to retrieve profile: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+logout = function() {
+    fetch(`${BASE_URL}/auth/logout`, {
+        method: 'GET',
+        credentials: 'include'
+    })
+    .then(data => {
+        console.log('Logout response:', data);
+        if (data.success) {
+            window.location.href = '/login.html'; // Redirect to login page after logout
+        } else {
+            alert('Logout failed: ' + data.message);
         }
     })
     .catch(error => {

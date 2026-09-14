@@ -20,7 +20,7 @@ services:
       DATABASE_USERNAME: store
       DATABASE_PASSWORD: store
     deploy:
-      replicas: 2
+      replicas: 1
 
   auth:
     build:
