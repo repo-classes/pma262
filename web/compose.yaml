@@ -3,7 +3,7 @@ name: store
 services:
 
   web:
-    image: nginx:latest
+    image: nginx:latest # usando como servidor HTTP
     volumes:
       - ./app:/usr/share/nginx/html:ro
     ports:
