@@ -1,0 +1,5 @@
+# Jenkins home, bind-mounted at runtime (contains secrets and build state)
+jenkins/config/
+
+# Local environment files
+.env
