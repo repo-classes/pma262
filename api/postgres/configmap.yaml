@@ -1,0 +1,12 @@
+###
+# Nao eh para subir um banco de dados postgres no kubernetes, apenas para criar um configmap com as variaveis de ambiente do banco de dados.
+###
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: postgres-configmap
+    labels:
+        app: postgres
+data:
+    POSTGRES_HOST: postgres
+    POSTGRES_DB: store
