@@ -8,7 +8,7 @@
 		<version>4.1.1</version>
 	</parent>
 	<groupId>store</groupId>
-	<artifactId>producer-service</artifactId>
+	<artifactId>consumer-service</artifactId>
 	<version>1.0.0</version>
 
 	<properties>
